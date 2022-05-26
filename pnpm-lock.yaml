@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@material-design-icons/font': ^0.11.0
   '@vitejs/plugin-vue': ^2.3.3
   autoprefixer: ^10.4.7
   postcss: ^8.4.14
@@ -11,6 +12,7 @@ specifiers:
   vue-tsc: ^0.34.7
 
 dependencies:
+  '@material-design-icons/font': 0.11.0
   vue: 3.2.36
 
 devDependencies:
@@ -28,6 +30,10 @@ packages:
     resolution: {integrity: sha512-rL50YcEuHbbauAFAysNsJA4/f89fGTOBRNs9P81sniKnKAr4xULe5AecolcsKbi88xu0ByWYDj/S1AJ3FSFuSQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+
+  /@material-design-icons/font/0.11.0:
+    resolution: {integrity: sha512-/+wvlmU01FaHFVv3ggHr5A+k0+/DcAlccBjvKg8Yvt8rYryDkY4xq9oT2/GbnD9Ib4201uYwm3XJDTdPaIJ3iw==}
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
