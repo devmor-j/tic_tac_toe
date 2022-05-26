@@ -71,10 +71,34 @@ function emptyBoard(): Board {
   ]
 }
 
+function resetGame() {
+  board.value = emptyBoard();
+}
+
+
+function playerIcon(cell: '' | Player) {
+  return cell === 'X' ? 'close' : cell === 'O' ? 'circle' : ''
+}
+
 </script>
 
 <template>
+  <main class="text-center">
+    <h1 class="text-2xl font-bold uppercase">Tic Tac Toe</h1>
+    <h3>Player <b>{{ player }}</b>'s turn</h3>
 
+    <div class="flex flex-col items-center">
+      <div v-for="(row, x) in board" :key="x" class="flex">
+        <div v-for="(cell, y) in row" :key="y" class="w-20 h-20 border border-slate-500 hover:bg-slate-700 cursor-pointer flex justify-center items-center text-4xl font-bold material-icons-outlined" :class="cell === 'X' ? 'text-blue-600' : 'text-red-600'" @click="makeMove(x, y)">
+          {{ playerIcon(cell) }}
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-3xl" v-if="winner">Player <span class="font-bold">{{ winner }}</span> wins</h2>
+
+    <button class="bg-slate-800 px-4 py-2 rounded-lg hover:bg-slate-700" @click="resetGame">Reset Game</button>
+  </main>
 </template>
 
 <style>
