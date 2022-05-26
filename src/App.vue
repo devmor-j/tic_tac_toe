@@ -88,14 +88,20 @@ function playerColor(cell: '' | Player) {
 </script>
 
 <template>
-  <main class="text-center">
-    <h1 class="text-xl font-bold uppercase">Tic Tac Toe</h1>
-    <h3>Player <b :class="playerColor(player)">{{ player }}</b>'s turn</h3>
+  <main class="text-center flex flex-col justify-center items-center min-h-screen gap-8">
+    <div class="space-y-1">
+      <h1 class="text-xl font-bold uppercase">Tic Tac Toe</h1>
+      <h3>Player <b :class="playerColor(player)">{{ player }}</b>'s turn</h3>
+    </div>
 
     <div class="flex flex-col items-center">
       <div v-for="(row, x) in board" :key="x" class="flex">
-        <div v-for="(cell, y) in row" :key="y" class="w-20 h-20 border border-slate-500 hover:bg-slate-700 cursor-pointer flex justify-center items-center" :class="playerColor(cell)" @click="makeMove(x, y)">
-          <i class="material-icons-outlined" style="font-size: 2.25rem;font-weight: 900;">{{ playerIcon(cell) }}</i>
+
+        <div v-for="(cell, y) in row" :key="y" class="w-20 h-20 border border-slate-500 hover:bg-slate-700 cursor-pointer flex justify-center items-center select-none" :class="playerColor(cell)" @click="makeMove(x, y)">
+
+          <i class="material-icons-outlined" style="font-size: 2.25rem; font-weight: 900;">
+            {{ playerIcon(cell) }}
+          </i>
         </div>
       </div>
     </div>
