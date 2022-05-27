@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import type { Player } from './types/Player'
 import type { Board } from './types/Board'
+import type { Cell } from './types/Cell'
 
 function emptyBoard(): Board {
   return [
@@ -14,7 +15,7 @@ function emptyBoard(): Board {
 const player = ref<Player>('X')
 const board = ref<Board>(emptyBoard())
 
-function calculateWinner(squares: Board): '' | Player {
+function calculateWinner(squares: Board): Cell {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -75,13 +76,13 @@ function resetGame() {
 
 // 'close' in material fonts mean 'X'
 // 'circle' means 'O'
-function playerIcon(player: '' | Player) {
+function playerIcon(player: Cell) {
   return player === 'X' ? 'close' : player === 'O' ? 'circle' : ''
 }
 
 // palyer 'X' plays as blue-600 color
 // palyer 'O' plays as red-600 color
-function playerColor(cell: '' | Player, bg: Boolean = false) {
+function playerColor(cell: Cell, bg: Boolean = false) {
   if (bg) {
     return cell === 'X' ? 'bg-blue-600' : 'bg-red-600';
   }
