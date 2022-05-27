@@ -10,7 +10,7 @@ const board = ref<Board>([
   ['', '', ''],
 ])
 
-function calculateWinner(squares): null | Player {
+function calculateWinner(squares: Board): '' | Player {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -22,19 +22,21 @@ function calculateWinner(squares): null | Player {
     [2, 4, 6],
   ]
 
+  const _squares = squares.flat()
+
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i]
 
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a]
+    if (_squares[a] && _squares[a] === _squares[b] && _squares[a] === _squares[c]) {
+      return _squares[a]
     }
   }
 
-  return null
+  return ''
 }
 
 const winner = computed(() => {
-  return calculateWinner(board.value.flat())
+  return calculateWinner(board.value)
 })
 
 function switchPlayers(player: Player): Player {
