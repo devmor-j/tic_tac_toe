@@ -3,12 +3,16 @@ import { ref, computed } from 'vue'
 import type { Player } from './types/Player'
 import type { Board } from './types/Board'
 
+function emptyBoard(): Board {
+  return [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', ''],
+  ]
+}
+
 const player = ref<Player>('X')
-const board = ref<Board>([
-  ['', '', ''],
-  ['', '', ''],
-  ['', '', ''],
-])
+const board = ref<Board>(emptyBoard())
 
 function calculateWinner(squares: Board): '' | Player {
   const lines = [
@@ -65,27 +69,21 @@ function makeMove(x: number, y: number) {
   player.value = switchPlayers(player.value)
 }
 
-function emptyBoard(): Board {
-  return [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', ''],
-  ]
-}
-
 function resetGame() {
   board.value = emptyBoard();
 }
 
-
+// 'close' in material fonts mean 'X'
+// 'circle' means 'O'
 function playerIcon(player: '' | Player) {
   return player === 'X' ? 'close' : player === 'O' ? 'circle' : ''
 }
 
+// palyer 'X' plays as blue-600 color
+// palyer 'O' plays as red-600 color
 function playerColor(cell: '' | Player) {
   return cell === 'X' ? 'text-blue-600' : 'text-red-600'
 }
-
 
 </script>
 
