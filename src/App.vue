@@ -77,7 +77,21 @@ function resetGame() {
 // 'close' in material fonts mean 'X'
 // 'circle' means 'O'
 function playerIcon(player: Cell) {
-  return player === 'X' ? 'close' : player === 'O' ? 'circle' : ''
+  let icon = '';
+
+  switch (player) {
+    case 'X':
+      icon = 'close'
+      break
+
+    case 'O':
+      icon = 'circle'
+      break
+
+    default:
+      break
+  }
+  return icon
 }
 
 // palyer 'X' plays as blue-600 color
