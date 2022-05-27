@@ -110,11 +110,8 @@ function playerColor(cell: Cell, bg: Boolean = false) {
     <div class="space-y-1">
       <h1 class="text-xl font-bold uppercase">Tic Tac Toe</h1>
       <h3>
-        Player
-        <b :class="playerColor(player)">
-          {{ player }}
-        </b>
-        's turn
+        Player <b :class="playerColor(player)">
+          {{ player }}</b>'s turn
       </h3>
     </div>
 
