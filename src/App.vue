@@ -81,7 +81,10 @@ function playerIcon(player: '' | Player) {
 
 // palyer 'X' plays as blue-600 color
 // palyer 'O' plays as red-600 color
-function playerColor(cell: '' | Player) {
+function playerColor(cell: '' | Player, bg: Boolean = false) {
+  if (bg) {
+    return cell === 'X' ? 'bg-blue-600' : 'bg-red-600';
+  }
   return cell === 'X' ? 'text-blue-600' : 'text-red-600'
 }
 
@@ -123,7 +126,7 @@ function playerColor(cell: '' | Player) {
       </h2>
     </Transition>
 
-    <button class="bg-slate-800 px-4 py-2 rounded-md hover:bg-slate-700" @click="resetGame">
+    <button class="bg-slate-800 px-4 py-2 rounded-md hover:bg-slate-700 transition duration-300" :class="winner ? playerColor(winner, true) : ''" @click="resetGame">
       Reset Game
     </button>
   </main>
@@ -132,7 +135,7 @@ function playerColor(cell: '' | Player) {
 <style>
 .scale-in-enter-active,
 .scale-in-leave-active {
-  transition: transform 0.5s;
+  transition: transform 0.3s;
 }
 
 .scale-in-enter-from,
