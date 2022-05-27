@@ -108,7 +108,7 @@ function playerColor(cell: Cell, bg: Boolean = false) {
 <template>
   <main class="text-center flex flex-col justify-center items-center min-h-screen gap-8">
     <div class="space-y-1">
-      <h1 class="text-xl font-bold uppercase">Tic Tac Toe</h1>
+      <h1 class="text-xl font-bold uppercase text-slate-400">Tic Tac Toe</h1>
       <h3>
         Player <b :class="playerColor(player)">
           {{ player }}</b>'s turn

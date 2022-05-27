@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 body {
-  @apply bg-slate-900 text-gray-100;
+  @apply bg-slate-900 text-slate-100;
 }
 
 .icon {
-  @apply text-4xl font-bold md:text-5xl !important
+  @apply text-4xl font-bold md:text-5xl !important;
 }
