@@ -115,7 +115,7 @@ function playerColor(cell: Cell, bg: Boolean = false) {
       </h3>
     </div>
 
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center outline outline-1 outline-slate-500">
       <div v-for="(row, x) in board" :key="x" class="flex">
 
         <div v-for="(cell, y) in row" :key="y" class="w-20 h-20 md:w-24 md:h-24 border border-slate-500 hover:bg-slate-700 cursor-pointer flex justify-center items-center select-none" :class="playerColor(cell)" @click="makeMove(x, y)">
