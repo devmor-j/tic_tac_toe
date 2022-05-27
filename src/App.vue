@@ -91,7 +91,13 @@ function playerColor(cell: '' | Player) {
   <main class="text-center flex flex-col justify-center items-center min-h-screen gap-8">
     <div class="space-y-1">
       <h1 class="text-xl font-bold uppercase">Tic Tac Toe</h1>
-      <h3>Player <b :class="playerColor(player)">{{ player }}</b>'s turn</h3>
+      <h3>
+        Player
+        <b :class="playerColor(player)">
+          {{ player }}
+        </b>
+        's turn
+      </h3>
     </div>
 
     <div class="flex flex-col items-center">
@@ -102,15 +108,35 @@ function playerColor(cell: '' | Player) {
           <i class="material-icons-outlined" style="font-size: 2.25rem; font-weight: 900;">
             {{ playerIcon(cell) }}
           </i>
+
         </div>
       </div>
     </div>
 
-    <h2 class="text-3xl" v-if="winner">Player <span class="font-bold" :class="playerColor(winner)">{{ winner }}</span> wins</h2>
+    <Transition name="scale-in">
+      <h2 class="text-3xl" v-if="winner">
+        Player
+        <span class="font-bold" :class="playerColor(winner)">
+          {{ winner }}
+        </span>
+        wins
+      </h2>
+    </Transition>
 
-    <button class="bg-slate-800 px-4 py-2 rounded-lg hover:bg-slate-700" @click="resetGame">Reset Game</button>
+    <button class="bg-slate-800 px-4 py-2 rounded-md hover:bg-slate-700" @click="resetGame">
+      Reset Game
+    </button>
   </main>
 </template>
 
 <style>
+.scale-in-enter-active,
+.scale-in-leave-active {
+  transition: transform 0.5s;
+}
+
+.scale-in-enter-from,
+.scale-in-leave-to {
+  transform: scale(0);
+}
 </style>
