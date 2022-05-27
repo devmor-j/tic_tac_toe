@@ -127,7 +127,7 @@ function playerColor(cell: Cell, bg: Boolean = false) {
       </h2>
     </Transition>
 
-    <button class="bg-slate-800 px-4 py-2 rounded-md hover:bg-slate-700 transition duration-300" :class="winner ? playerColor(winner, true) : ''" @click="resetGame">
+    <button class="px-4 py-2 rounded-md hover:bg-slate-700 transition duration-300" :class="winner ? playerColor(winner, true) : 'bg-slate-800'" @click="resetGame">
       Reset Game
     </button>
   </main>
