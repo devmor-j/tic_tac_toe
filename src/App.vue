@@ -118,7 +118,7 @@ function playerColor(cell: Cell, bg: Boolean = false) {
     <div class="flex flex-col items-center outline outline-1 outline-slate-500">
       <div v-for="(row, x) in board" :key="x" class="flex">
 
-        <div v-for="(cell, y) in row" :key="y" class="w-20 h-20 md:w-24 md:h-24 border border-slate-500 hover:bg-slate-700 cursor-pointer flex justify-center items-center select-none" :class="playerColor(cell)" @click="makeMove(x, y)">
+        <div v-for="(cell, y) in row" :key="y" class="w-20 h-20 md:w-24 md:h-24 border border-slate-500 hover:bg-slate-700 cursor-pointer flex justify-center items-center select-none transition hover:scale-90 active:scale-110" :class="[playerColor(cell), { 'hover:bg-red-600/10': cell === 'O' }, { 'hover:bg-blue-600/10': cell === 'X' }]" @click="makeMove(x, y)">
 
           <svg v-if="playerIcon(cell) === 'close'" class="md:w-16 md:h-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="48" height="48" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
             <path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"></path>
