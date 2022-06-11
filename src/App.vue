@@ -120,9 +120,13 @@ function playerColor(cell: Cell, bg: Boolean = false) {
 
         <div v-for="(cell, y) in row" :key="y" class="w-20 h-20 md:w-24 md:h-24 border border-slate-500 hover:bg-slate-700 cursor-pointer flex justify-center items-center select-none" :class="playerColor(cell)" @click="makeMove(x, y)">
 
-          <i class="material-icons-outlined icon">
-            {{ playerIcon(cell) }}
-          </i>
+          <svg v-if="playerIcon(cell) === 'close'" class="md:w-16 md:h-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="48" height="48" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"></path>
+          </svg>
+
+          <svg v-if="playerIcon(cell) === 'circle'" class="md:w-16 md:h-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="48" height="48" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"></path>
+          </svg>
 
         </div>
       </div>
