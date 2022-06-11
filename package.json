@@ -2,7 +2,7 @@
   "name": "tic-tac-toe",
   "author": "Morteza Jamshidi <devmor.j@gmail.com>",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
