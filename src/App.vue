@@ -115,7 +115,7 @@ function playerColor(cell: Cell, bg: Boolean = false) {
       </h3>
     </div>
 
-    <div class="flex flex-col items-center outline outline-1 outline-slate-500">
+    <div class="flex flex-col items-center outline outline-1 outline-slate-500 backdrop-blur-3xl">
       <div v-for="(row, x) in board" :key="x" class="flex">
 
         <div v-for="(cell, y) in row" :key="y" class="w-20 h-20 md:w-24 md:h-24 border border-slate-500 hover:bg-slate-700 cursor-pointer flex justify-center items-center select-none transition hover:scale-90 active:scale-110" :class="[playerColor(cell), { 'hover:bg-red-600/10': cell === 'O' }, { 'hover:bg-blue-600/10': cell === 'X' }]" @click="makeMove(x, y)">
@@ -132,19 +132,21 @@ function playerColor(cell: Cell, bg: Boolean = false) {
       </div>
     </div>
 
-    <Transition name="scale-in">
-      <h2 class="text-3xl" v-if="winner">
-        Player
-        <span class="font-bold" :class="playerColor(winner)">
-          {{ winner }}
-        </span>
-        wins
-      </h2>
-    </Transition>
-
     <button class="px-4 py-2 rounded-md hover:bg-slate-700 transition duration-300" :class="winner ? playerColor(winner, true) : 'bg-slate-800'" @click="resetGame">
       Reset Game
     </button>
+
+    <div class="relative w-full">
+      <Transition name="scale-in">
+        <h2 class="text-3xl absolute w-full" v-if="winner">
+          Player
+          <span class="font-bold" :class="playerColor(winner)">
+            {{ winner }}
+          </span>
+          wins
+        </h2>
+      </Transition>
+    </div>
   </main>
 </template>
 
